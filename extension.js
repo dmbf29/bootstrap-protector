@@ -26,6 +26,7 @@ function activate(context) {
       // The code you place here will be executed every time your command is executed
       const editor = vscode.window.activeTextEditor;
       const document = editor.document;
+      const content = document.getText();
 
       // Clear previous decorations
       if (decorationType) {
@@ -36,30 +37,22 @@ function activate(context) {
         return;
       }
 
-      const bootstrapClasses = [];
-      // Display a message box to the user
-      // vscode.window.showWarningMessage("You are overriding Bootstrap a class!");
-      const content = document.getText();
-      const wordToSearch = "btn"; // Replace with the word you're searching for
-      const regex = new RegExp(`\\.\\b${wordToSearch}\\b(?=\\s|$|{)`, "g");
-      const matches = [...content.matchAll(regex)];
+      const bootstrapClasses = ["btn", "container", "row", "col"]; // Add more classes as needed
+      const decorations = [];
 
-      // if (matches.length > 0) {
-      //   vscode.window.showWarningMessage(
-      //     "You are overriding Bootstrap a class!"
-      //   );
-      // }
-      if (matches.length > 0) {
-        const decorations = [];
+      // Process each class in the array
+      bootstrapClasses.forEach((wordToSearch) => {
+        const regex = new RegExp(`\\.\\b${wordToSearch}\\b(?=\\s|$|{)`, "g");
+        const matches = [...content.matchAll(regex)];
 
         matches.forEach((match) => {
           const startPos = document.positionAt(match.index);
           const line = startPos.line;
 
           // Create a decoration for the line
-          const decoration = {
+          decorations.push({
             range: new vscode.Range(line, 0, line, 0),
-            hoverMessage: `Overriding Bootstrap classes is not recommended.`,
+            hoverMessage: `Overriding Bootstrap class "${wordToSearch}" is not recommended.`,
             renderOptions: {
               after: {
                 contentText: `⚠️ Warning: "${wordToSearch}" is already being used by Bootstrap.`,
@@ -67,11 +60,11 @@ function activate(context) {
                 backgroundColor: "rgba(240, 132, 132, 0.2)",
               },
             },
-          };
-
-          decorations.push(decoration);
+          });
         });
+      });
 
+      if (decorations.length > 0) {
         // Create a decoration type
         decorationType = vscode.window.createTextEditorDecorationType({
           isWholeLine: true,
@@ -80,9 +73,9 @@ function activate(context) {
         // Apply decorations to the editor
         editor.setDecorations(decorationType, decorations);
 
-        vscode.window.showInformationMessage(
-          `Found ${matches.length} occurrence(s) of "${wordToSearch}" in the current SCSS file.`
-        );
+        // vscode.window.showInformationMessage(
+        //   `Found ${decorations.length} occurrence(s) of Bootstrap classes in the current SCSS file.`
+        // );
       }
     }
   );
