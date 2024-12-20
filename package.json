@@ -13,8 +13,8 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "bootstrap-protector.helloWorld",
-      "title": "Hello World"
+      "command": "bootstrap-protector.checkConflicts",
+      "title": "Check SCSS for Bootstrap Conflicts"
     }]
   },
   "scripts": {
