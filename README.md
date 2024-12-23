@@ -1,65 +1,63 @@
-# bootstrap-protector README
+# Bootstrap Protector VS Code Extension
 
-This is the README for your extension "bootstrap-protector". After writing up a brief description, we recommend including the following sections.
+## Overview
+
+Bootstrap Protector is a Visual Studio Code extension designed to help developers avoid accidentally overwriting predefined CSS classes from the Bootstrap framework. It ensures you stay informed about potential conflicts in your custom SCSS files, allowing you to write clean, conflict-free stylesheets.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Automatically scans your SCSS files on save.
+- Identifies classes already defined by Bootstrap.
+- Displays a warning directly in the text editor, highlighting the conflicting class.
 
-For example if there is an image subfolder under your extension project workspace:
+### Example
 
-\!\[feature X\]\(images/feature-x.png\)
+If you define a class in your SCSS file that conflicts with Bootstrap, such as:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+```scss
+.container {
+  margin: auto;
+}
+```
 
-## Requirements
+The extension will display a warning message in red:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```
+⚠️ Warning: "container" is already being used by Bootstrap.
+```
 
-## Extension Settings
+## Installation
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. Download and install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/).
+2. Reload your editor to activate the extension.
 
-For example:
+## Usage
 
-This extension contributes the following settings:
+1. Open any SCSS file in your project.
+2. Save the file (Ctrl + S / Cmd + S) to trigger the extension.
+3. If any conflicting classes are detected, warnings will appear in the editor.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Configuration
+
+The extension uses a predefined list of Bootstrap classes to check for conflicts. This list is stored in a JSON file included with the extension. If you want to customize this list:
+
+1. Locate the `bootstrapClasses.json` file in the extension's installation directory.
+2. Add, remove, or update the class names as needed.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Currently, the extension only supports SCSS files. CSS and other file types are not scanned (yet).
+- Based off of a limited number of Bootstrap 5.3 classes. More to be added later.
+- The warning message is displayed for the entire line where the class is defined, which might not suit all preferences.
 
-## Release Notes
+## Contributing
 
-Users appreciate release notes as you update your extension.
+Contributions are welcome! Feel free to submit issues or pull requests on the [GitHub repository](https://github.com/dmbf29/boostrap-protector).
 
-### 1.0.0
+## License
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+This extension is licensed under the MIT License. See the `LICENSE` file for more information.
 
 ---
 
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Happy coding with Bootstrap Protector!
