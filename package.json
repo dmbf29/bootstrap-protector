@@ -22,6 +22,9 @@
     "pretest": "npm run lint",
     "test": "vscode-test"
   },
+  "files": [
+    "bootstrapClasses.json"
+  ],
   "devDependencies": {
     "@types/vscode": "^1.95.0",
     "@types/mocha": "^10.0.9",
