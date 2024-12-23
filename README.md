@@ -4,6 +4,8 @@
 
 Bootstrap Protector is a Visual Studio Code extension designed to help developers avoid accidentally overwriting predefined CSS classes from the Bootstrap framework. It ensures you stay informed about potential conflicts in your custom SCSS files, allowing you to write clean, conflict-free stylesheets.
 
+![Preview of Bootstrap Protector in action](https://raw.githubusercontent.com/dmbf29/boostrap-protector/76d5dc13024e6c7d496703e3d04292c8df4e793a/preview.png)
+
 ## Features
 
 - Automatically scans your SCSS files on save.
