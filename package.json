@@ -31,6 +31,6 @@
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1"
   },
-  "icon": "logo.jpg",
+  "icon": "icon.png",
   "publisher": "dougberks"
 }
