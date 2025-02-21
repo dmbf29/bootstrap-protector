@@ -31,7 +31,7 @@ The extension will display a warning message in red:
 ## Installation
 
 1. Download and install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/).
-2. Reload your editor to activate the extension.
+2. ⚠️ Activation: Open the command pallete (Ctrl + S / Cmd + S) and search for "Bootstrap Protector" and choose "Check SCSS for conflicts"
 
 ## Usage
 

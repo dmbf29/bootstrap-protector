@@ -15,7 +15,7 @@
   "contributes": {
     "commands": [{
       "command": "bootstrap-protector.checkConflicts",
-      "title": "Check SCSS for Bootstrap Conflicts"
+      "title": "Boostrap Protector: Check SCSS for conflicts"
     }]
   },
   "scripts": {
