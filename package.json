@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-protector",
   "displayName": "Bootstrap Protector",
-  "description": "Bootstrap Protector is a Visual Studio Code extension designed to help developers avoid accidentally overwriting predefined CSS classes from the Bootstrap framework. It ensures you stay informed about potential conflicts in your custom SCSS files, allowing you to write clean, conflict-free stylesheets.",
+  "description": "Bootstrap Protector is a Visual Studio Code extension designed to help developers avoid accidentally overwriting predefined CSS classes from the Bootstrap framework. It ensures you stay informed about potential conflicts in your custom CSS and SCSS files, allowing you to write clean, conflict-free stylesheets.",
   "version": "0.0.5",
   "repository": "https://github.com/dmbf29/boostrap-protector",
   "engines": {
@@ -15,7 +15,7 @@
   "contributes": {
     "commands": [{
       "command": "bootstrap-protector.checkConflicts",
-      "title": "Boostrap Protector: Check SCSS for conflicts"
+      "title": "Boostrap Protector: Check CSS/SCSS for conflicts"
     }]
   },
   "scripts": {

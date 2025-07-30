@@ -28,7 +28,7 @@ function activate(context) {
   // Automatically check conflicts on save
   const disposableSaveEvent = vscode.workspace.onDidSaveTextDocument(
     (document) => {
-      if (document.languageId === "scss") {
+      if (document.languageId === "scss" || document.languageId === "css") {
         const editor = vscode.window.activeTextEditor;
         if (editor && editor.document === document) {
           checkConflicts();
@@ -50,9 +50,9 @@ function checkConflicts() {
 
   const document = editor.document;
 
-  if (document.languageId !== "scss") {
+  if (document.languageId !== "scss" && document.languageId !== "css") {
     vscode.window.showErrorMessage(
-      "This extension only works with SCSS files."
+      "This extension only works with CSS and SCSS files."
     );
     return;
   }
@@ -97,11 +97,11 @@ function checkConflicts() {
     editor.setDecorations(decorationType, decorations);
 
     vscode.window.showInformationMessage(
-      `Found ${decorations.length} occurrence(s) of Bootstrap classes in the current SCSS file.`
+      `Found ${decorations.length} occurrence(s) of Bootstrap classes in the current file.`
     );
   } else {
     vscode.window.showInformationMessage(
-      "No Bootstrap class conflicts found in the current SCSS file."
+      "No Bootstrap class conflicts found in the current file."
     );
   }
 }
